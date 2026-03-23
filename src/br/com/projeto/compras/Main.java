@@ -31,7 +31,7 @@ public class Main {
             System.out.print("Digite o valor do produto: ");
             valorProduto = sc.nextInt();
 
-            if ((analiseDeLimite >= valorProduto) && (analiseDeLimite >= valorTotalProdutos) && (analiseDeLimite > 0)) {
+            if ((analiseDeLimite >= valorProduto) || (analiseDeLimite >= valorTotalProdutos) || (analiseDeLimite > 0)) {
                 valorTotalProdutos += valorProduto;
                 analiseDeLimite = cartao.getLimite() - valorTotalProdutos;
 
@@ -63,7 +63,8 @@ public class Main {
         }
         System.out.println("===========================\n");
         System.out.println("*** COMPRAS REALIZADAS ***\n");
-        listaCompras.sort(Comparator.comparing(Compra::getValor));
+        listaCompras.sort(Comparator.comparing(Compra::getValor).reversed());
+
         for (Compra compra : listaCompras) {
             System.out.println(compra.getNomeProduto() + " - " + compra.getValor());
         }
