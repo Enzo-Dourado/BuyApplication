@@ -64,7 +64,10 @@ public class Main {
         System.out.println("===========================\n");
         System.out.println("*** COMPRAS REALIZADAS ***\n");
         listaCompras.sort(Comparator.comparing(Compra::getValor));
-        System.out.println(listaCompras);
+        for (Compra compra : listaCompras) {
+            System.out.println(compra.getNomeProduto() + " - " + compra.getValor());
+        }
+
         System.out.println("\n===========================");
         System.out.println("Valor total: " + valorTotalProdutos);
         System.out.println("Seu saldo: " + analiseDeLimite);
